@@ -1,0 +1,1 @@
+https://danielhodek.github.io/lab2/

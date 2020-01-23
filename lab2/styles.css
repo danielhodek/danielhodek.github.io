@@ -1,0 +1,81 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 30px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+header {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 2px solid #eaeaea;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  border: 2px solid #eaeaea;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 8px;
+  color: #555;
+  outline: none;
+}
+
+input:focus {
+  border: 3px solid #99ccff;
+  padding: 7px;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin: 0 0 30px 0;
+}
+
+.artist-card {
+  border: 2px solid #eaeaea;
+  border-top: none;
+  padding: 13px 17px;
+  display: flex;
+  align-items: center;
+}
+
+li.artist-card:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+li.artist-card:hover {
+  background: #efefef;
+  cursor: pointer;
+}
+
+.artist-img {
+  border-radius: 5px;
+  margin-right: 17px;
+  align-self: center;
+}
+
+.artist-name {
+  margin: 0 0 3px 0;
+  font-weight: 600;
+}
+
+.artist-description {
+  margin: 0;
+  color: #555;
+}
