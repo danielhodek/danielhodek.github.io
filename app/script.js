@@ -42,6 +42,11 @@ function createArtistCard(name, about, imgUrl) {
   const p = document.createElement("p");
   const button = document.createElement("button");
 
+  // add event listeners
+  button.addEventListener('click', () => {
+    li.remove();
+  }); 
+
   // add classes
   li.classList.add("artist-card");
   img.classList.add("artist-img");
