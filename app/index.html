@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 2</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <header class="border">
+      <h1>Artist Directory</h1>
+      <div class="input-combo">
+        <input id="filter" type="text" />
+        <button id="add-artist-btn">Add artist</button>
+      </div>
+    </header>
+    <main>
+      <form id="artist-form">
+        <input id="name" type="text" maxLength="40" />
+        <input id="about" type="text" maxLength="40" />
+        <input id="img-url" type="text" />
+        <button id="add-btn" type="button">Add</button>
+      </form>
+      <ul class="artist-list">
+        <!-- <li class="artist-card">
+          <img class="artist-img" src="https://randomuser.me/api/portraits/med/men/32.jpg"/>
+          <div class="artist-text">
+            <h3 class="artist-name">Barot Bellingham</h3>
+            <p class="artist-description">Royal Museum of Painting and Sculpture</p>
+          </div>
+        </li> -->
+      </ul>
+    </main>
+  </body>
+  <script type="text/javascript" src="script.js"></script>
+</html>
