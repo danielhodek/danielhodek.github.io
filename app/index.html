@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lab 2</title>
+    <title>Artists Directory</title>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
       rel="stylesheet"
@@ -12,16 +12,17 @@
     <header class="border">
       <h1>Artist Directory</h1>
       <div class="input-combo">
-        <input id="filter" type="text" />
+        <input id="search" type="text" />
+        <button id="search-btn">Search</button>
         <button id="add-artist-btn">Add artist</button>
       </div>
     </header>
     <main>
       <form id="artist-form" class="hide">
-        <input id="name" type="text" maxLength="40" />
-        <input id="about" type="text" maxLength="40" />
-        <input id="img-url" type="text" />
-        <button id="add-btn" type="button">Add</button>
+        <input id="name" type="text" maxLength="40" required/>
+        <input id="about" type="text" maxLength="40" required/>
+        <input id="img-url" type="text" required/>
+        <button id="add-btn" type="submit">Add</button>
       </form>
       <ul class="artist-list">
         <!-- <li class="artist-card">

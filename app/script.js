@@ -1,23 +1,64 @@
+const ARTISTS_KEY = "artists";
+
 const addArtistBtn = document.getElementById("add-artist-btn");
+const search = document.getElementById("search");
+const searchBtn = document.getElementById("search-btn");
 const addBtn = document.getElementById("add-btn");
 const artistForm = document.getElementById("artist-form");
 const artistList = document.querySelector(".artist-list");
+
+let artists;
+
+Storage.prototype.setObj = function(key, obj) {
+  return this.setItem(key, JSON.stringify(obj));
+};
+
+Storage.prototype.getObj = function(key) {
+  return JSON.parse(this.getItem(key));
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  artists = localStorage.getObj(ARTISTS_KEY);
+
+  if (!artists) {
+    artists = [];
+    return;
+  }
+
+  for (let a of artists) {
+    addArtistCard(a);
+  }
+});
+
+searchBtn.addEventListener("click", () => {
+  const searchStr = search.value;
+  const regex = new RegExp(searchStr, "i");
+
+  for (let i = 0; i < artists.length; i++) {
+    if (!regex.test(artists[i].name)) {
+      artistList.children[i].classList.add("hide");
+    } else {
+      artistList.children[i].classList.remove("hide");
+    }
+  }
+});
 
 addArtistBtn.addEventListener("click", () => {
   toggleForm(artistForm);
 });
 
-addBtn.addEventListener("click", () => {
-  const name = document.getElementById("name").value;
-  const about = document.getElementById("about").value;
-  const imgUrl = document.getElementById("img-url").value;
+addBtn.addEventListener("click", e => {
+  e.preventDefault();
 
-  if (name === "" || about === "" || imgUrl === "") {
-    return;
-  }
+  const artist = {
+    name: document.getElementById("name").value,
+    about: document.getElementById("about").value,
+    imgUrl: document.getElementById("img-url").value
+  };
 
-  const card = createArtistCard(name, about, imgUrl);
-  artistList.appendChild(card);
+  addArtist(artist);
+  addArtistCard(artist);
+
   toggleForm(artistForm);
 });
 
@@ -33,6 +74,31 @@ function clearForm(form) {
   }
 }
 
+function addArtist(artist) {
+  artists.push(artist);
+  localStorage.setObj(ARTISTS_KEY, artists);
+}
+
+function deleteArtist(index) {
+  console.log(index);
+  artists.splice(index, 1);
+  console.log(artists);
+  localStorage.setObj(ARTISTS_KEY, artists);
+}
+
+function addArtistCard(artist) {
+  const card = createArtistCard(artist.name, artist.about, artist.imgUrl);
+  artistList.appendChild(card);
+}
+
+function indexOf(element) {
+  let i = 0;
+  while ((element = element.previousElementSibling) != null) {
+    i++;
+  }
+  return i;
+}
+
 function createArtistCard(name, about, imgUrl) {
   // create elements
   const li = document.createElement("li");
@@ -43,9 +109,10 @@ function createArtistCard(name, about, imgUrl) {
   const button = document.createElement("button");
 
   // add event listeners
-  button.addEventListener('click', () => {
+  button.addEventListener("click", () => {
+    deleteArtist(indexOf(li));
     li.remove();
-  }); 
+  });
 
   // add classes
   li.classList.add("artist-card");
