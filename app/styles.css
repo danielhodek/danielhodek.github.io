@@ -66,22 +66,17 @@ h1 {
 /* artist cards */
 
 .artist-card {
-  border: 2px solid #eaeaea;
-  border-top: none;
   padding: 13px 17px;
   display: flex;
   align-items: center;
+  border-bottom: 2px solid #eaeaea;
+  margin-bottom: -2px;
 }
 
-li.artist-card:first-child {
-  border-top: 2px solid #eaeaea;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-li.artist-card:last-child {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+.artist-list {
+  margin-top: -2px;
+  border: 2px solid #eaeaea;
+  border-radius: 5px;
 }
 
 li.artist-card:hover {

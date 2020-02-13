@@ -80,9 +80,7 @@ function addArtist(artist) {
 }
 
 function deleteArtist(index) {
-  console.log(index);
   artists.splice(index, 1);
-  console.log(artists);
   localStorage.setObj(ARTISTS_KEY, artists);
 }
 
